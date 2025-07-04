@@ -27,9 +27,32 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(
-        child: Text('Hello Kittinan!'),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ImageSection(image: 'assets/images/Feww.jpg'), // 👉 เปลี่ยนเป็น path จริงของคุณ
+          SizedBox(height: 16),
+          Center(
+            child: Text('Hello kittinan!'),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class ImageSection extends StatelessWidget {
+  const ImageSection({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      image,
+      width: 600,
+      height: 600,
+      fit: BoxFit.cover,
     );
   }
 }
